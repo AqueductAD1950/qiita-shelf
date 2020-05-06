@@ -1,6 +1,6 @@
-# Qiita
+# qiita-shelf
 
-"Qiita" は [Qiita](https://qiita.com/) に投稿する記事を管理するためのプログラムです
+"qiita-shelf" は [Qiita](https://qiita.com/) に投稿する記事を管理するためのプログラムです
 
 ## Objective
 
@@ -52,8 +52,8 @@
 ## Setup
 
 ``` bash
-$ git clone git@github.com:muryakami/Qiita.git
-$ cd Qiita
+$ git clone git@github.com:muryakami/qiita-shelf.git
+$ cd qiita-shelf
 ```
 
 # Note

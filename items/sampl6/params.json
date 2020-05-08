@@ -1,0 +1,15 @@
+{
+  "title": "Example title 6",
+  "tags": [
+    {
+      "name": "GitHub",
+      "versions": []
+    },
+    {
+      "name": "GitHubActions",
+      "versions": []
+    }
+  ],
+  "private": false,
+  "tweet": false
+}

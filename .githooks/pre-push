@@ -4,6 +4,7 @@ echo 'Submit articles to Qiita!'
 
 ITEMS_PATH=items
 for FILE in `git diff origin/master --name-only --relative=$ITEMS_PATH | grep README.md` ; do
-  ruby scripts/deploy.rb $FILE
-  git add `dirname $ITEMS_PATH/$FILE`
+  DIR_NAME=`dirname $FILE`
+  ruby scripts/deploy.rb $DIR_NAME
+  git add $ITEMS_PATH/$DIR_NAME
 done

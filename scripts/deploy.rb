@@ -3,9 +3,9 @@ require "bundler/setup"
 require "qiita"
 require "json"
 
-PARAMS_FILE_PATH  = 'articles/sample/params.json'
-ITEM_ID_FILE_PATH = 'articles/sample/ITEM_ID'
-BODY_FILE_PATH    = 'articles/sample/README.md'
+PARAMS_FILE_PATH  = "articles/#{ARGV[0]}/params.json"
+ITEM_ID_FILE_PATH = "articles/#{ARGV[0]}/ITEM_ID"
+BODY_FILE_PATH    = "articles/#{ARGV[0]}/README.md"
 
 client = Qiita::Client.new(access_token: ENV['QIITA_TOKEN'])
 headers = {'Content-Type' => 'application/json'}

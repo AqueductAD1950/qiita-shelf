@@ -3,9 +3,10 @@ require "bundler/setup"
 require "qiita"
 require "json"
 
-PARAMS_FILE_PATH  = "articles/#{ARGV[0]}/params.json"
-ITEM_ID_FILE_PATH = "articles/#{ARGV[0]}/ITEM_ID"
-BODY_FILE_PATH    = "articles/#{ARGV[0]}/README.md"
+ITEM_DIR_PATH = "items/#{ARGV[0]}"
+PARAMS_FILE_PATH = File.join(ITEM_DIR_PATH, "params.json")
+ITEM_ID_FILE_PATH = File.join(ITEM_DIR_PATH, "ITEM_ID")
+BODY_FILE_PATH = File.join(ITEM_DIR_PATH, "README.md")
 
 client = Qiita::Client.new(access_token: ENV['QIITA_TOKEN'])
 headers = {'Content-Type' => 'application/json'}
@@ -27,8 +28,8 @@ else
   p 'Create Article!'
   p res = client.create_item(params, headers)
   if res.status == 201
-    File.open(ITEM_ID_FILE_PATH, "w") do |f|
-      f.write(res.body["id"])
+    File.open(ITEM_ID_FILE_PATH, 'w') do |f|
+      f.write(res.body['id'])
     end
   end
 end

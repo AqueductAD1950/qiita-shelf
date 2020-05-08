@@ -21,7 +21,14 @@ if File.exist?(ITEM_ID_FILE_PATH)
   item_id = File.open(ITEM_ID_FILE_PATH) do |file|
     file.read
   end
+  p 'Update Article!'
   p client.update_item(item_id, params, headers)
 else
-  p client.create_item(params, headers)
+  p 'Create Article!'
+  p res = client.create_item(params, headers)
+  if res.status == 201
+    File.open(ITEM_ID_FILE_PATH, "w") do |f|
+      f.write(res.body["id"])
+    end
+  end
 end
